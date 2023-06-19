@@ -1,32 +1,34 @@
 import loginUserInfo from "@/lib/login"
-import { useState } from "react"
 import { useRouter } from "next/navigation"
 import { toast } from "react-toastify"
+import { FormikValues } from "formik"
+
+
+
 export const useLogin = () => {
-    const [userName , setUserName] = useState("")
-    const [password ,setPassword] = useState("")
-    const [loading , setLoading] = useState(false)
     const router = useRouter()
+    const initialValues = {
+        username : "" , 
+        password : ""
+    }
 
-    const login = async(e : React.FormEvent<HTMLFormElement>) => {
-        setLoading(true)
-        e.preventDefault()
-        if(!userName || !password) return
+    const login = async( values : FormikValues ) => {
 
-        const user = await loginUserInfo(userName)
-        if(user[0].password === password) {
-            toast.success("you were logged in" )
-            router.push("/")
-        }
+        if(!values.username || !values.password) return toast.error("please fill out all of the fields")
         
-        setLoading(false)
+        // this api gets the use who has the same username
+        const user = await loginUserInfo(values.username)
+        if(user[0]?.password === values.password) {
+            router.push("/")
+        }else{
+            return toast.error("username or password is incorrect")
+        }
+
+        
     }
     return {
-        userName , 
-        setUserName , 
-        password , 
-        setPassword , 
+        initialValues ,
         login , 
-        loading
+
     }
 }

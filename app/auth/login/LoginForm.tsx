@@ -23,8 +23,8 @@ const LoginForm = () => {
                   <Field 
                     className='w-full my-2 p-2 border-solid-1 outline-none active:bg-white border-slate-300 border rounded-lg h-9 px-2 text-sm'
                     type="text" 
-                    name="username"
-                    placeholder="username"
+                    name="userName"
+                    placeholder="userName"
                   />
                   <Field 
                     className='w-full my-2 p-2 border-solid-1 outline-none active:bg-white border-slate-300 border rounded-lg h-9 text-sm' 

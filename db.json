@@ -1,13 +1,12 @@
 {
-    "users" : [
-        {
-            "id" : 5 ,
-            "userName": "hamid" ,
-            "firsName" : "hamid" , 
-            "lastName" : "habibi" , 
-            "email" : "hamid@gmail.com" , 
-            "password" : "123456789"
-
-        }
-    ]
+  "users": [
+    {
+      "id": 5,
+      "userName": "hamid",
+      "firstName": "hamid",
+      "lastName": "habibi",
+      "email": "hamid@gmail.com",
+      "password": "123456789"
+    }
+  ]
 }

@@ -7,6 +7,14 @@
       "lastName": "habibi",
       "email": "hamid@gmail.com",
       "password": "123456789"
+    },
+    {
+      "userName": "testtest",
+      "firstName": "test",
+      "lastName": "test",
+      "email": "test@dsgfs.sdfs",
+      "password": "test",
+      "id": 6
     }
   ]
 }

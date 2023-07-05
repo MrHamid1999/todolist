@@ -17,12 +17,22 @@ export const useLogin = () => {
         if(!values.userName || !values.password) return toast.error("please fill out all of the fields")
         
         // this api gets the use who has the same userName
-        const user = await loginUserInfo(values.userName)
-        if(user[0]?.password === values.password) {
-            router.push("/")
-        }else{
-            return toast.error("userName or password is incorrect")
-        }
+     await loginUserInfo(values.userName)
+            .then(res => {
+                if(res[0]?.password === values.password) {
+                    const todoList = {
+                        user : res[0] 
+                    }
+                    localStorage.setItem("todoList" , JSON.stringify(todoList))
+                    router.push("/tasks")
+                }else{
+                    return toast.error("userName or password is incorrect")
+                }
+            })
+            .catch(err => {
+                toast.error("server is not responding") 
+            })
+
 
         
     }

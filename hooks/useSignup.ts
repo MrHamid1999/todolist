@@ -26,8 +26,8 @@ const useSignup = (users : User[]) => {
 
         // checks if the user already exists
         users.forEach(user => {
-            if(user.userName === values.userName) return errors.push("this username already exist")
-            if(user.email === values.email) return errors.push("this email already exist")
+            if(user?.userName === values.userName) return errors.push("this username already exist")
+            if(user?.email === values.email) return errors.push("this email already exist")
 
         })
         if(errors.length > 0 ) return toast.error(errors[0])
@@ -39,7 +39,14 @@ const useSignup = (users : User[]) => {
             password: values.password
         }
         await addUser(user)
-        .then(() => router.push("/") )
+        .then((res) => {
+            const todoList = {
+                user 
+            }
+            localStorage.setItem("todoList" , JSON.stringify(todoList))
+
+            router.push("/tasks") 
+        })
         .catch(() => toast.error("there has been an error"))
     }
 

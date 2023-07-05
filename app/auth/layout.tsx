@@ -9,7 +9,7 @@ export const metadata = {
   description: 'first Page ',
 }
 
-export default function RootLayout({
+export default function AuthLayout({
   children,
 }: {
   children: React.ReactNode
